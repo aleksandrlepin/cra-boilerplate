@@ -1,9 +1,9 @@
 import * as types from './actionTypes';
 import MovieApi from '../api/movieApi';
 
-export const loadMovies = () => {
+export const loadMovies = (query, param) => {
   return (dispatch) => {
-    return MovieApi.getMovies()
+    return MovieApi.getMovies(query, param)
     .then(movies => {
       console.log('movies: ', movies);
         dispatch(loadMoviesSuccess(movies));

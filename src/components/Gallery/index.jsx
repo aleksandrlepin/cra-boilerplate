@@ -2,15 +2,16 @@ import React, { Component } from 'react';
 import List from '../List';
 import { connect } from 'react-redux';
 import { loadMovies } from '../../actions/moviesActions';
-import { Route, Link} from 'react-router-dom';
+import { Route, NavLink, Redirect } from 'react-router-dom';
 import { Row, Col } from 'react-materialize';
-import './index.css';
 
 class Gallery extends Component{
+
   componentDidMount() {
-    this.props.dispatch(loadMovies());
   }
+
   render() {
+    console.log('this.props.movies: ', this.props.movies);
     const {match} = this.props;
     return (
       <div>
@@ -19,16 +20,17 @@ class Gallery extends Component{
             <h4>Gallery</h4>
           </Col>
           <Col s={10}>
-            <Link to={`${match.url}/upcoming`}>upcoming</Link>
-            <Link to={`${match.url}/rated`}>rated</Link>
-            <Link to={`${match.url}/search`}>search</Link>
+            <NavLink to={`${match.url}/now_playing`} activeStyle={{textDecoration: 'underline'}} >Now Playing</NavLink>
+            <NavLink to={`${match.url}/upcoming`} activeStyle={{textDecoration: 'underline'}} >Upcoming</NavLink>
+            <NavLink to={`${match.url}/top_rated`} activeStyle={{textDecoration: 'underline'}} >Top Rated</NavLink>
           </Col>
         </Row>
-        <Row >
+        <Row>
           <Col s={12}>
-            <Route path={`${match.path}/:option`} render={() => <List {...this.props} />} />
+            <Route path={`${match.url}/:option`} render={(props) => (<List {...props} load={this.props.load} movies={this.props.movies} />)} />
+            {/* <Redirect to={`${match.path}/now_playing`} /> */}
           </Col>
-        </Row >
+        </Row>
       </div>
     );
   }
@@ -37,10 +39,16 @@ class Gallery extends Component{
 // export default Gallery;
 
 const mapStateToProps = (state) => ({
-  movies: state.movies
-})
+  movies: state.movies,
+});
 
-export default connect(mapStateToProps, null)(Gallery);
+const mapDispatchToProps = (dispatch) => ({
+  load(querry, param){
+    dispatch(loadMovies(querry, param))
+  }
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Gallery);
 
 {/* <Route path={'/:upcoming'} />
       <Route path={'/:rated'}/>

@@ -6,7 +6,7 @@ export default (props) => {
   return (
     <ul>
       <li>
-        <NavLink to="/" className="nav-link" activeClassName="nav-link--active">home</NavLink>
+        <NavLink exact to="/" className="nav-link" activeClassName="nav-link--active">home</NavLink>
       </li>
       <li>
         <NavLink to="/about" className="nav-link" activeClassName="nav-link--active">about</NavLink>

@@ -4,7 +4,7 @@ import navBarItems from './navBarReducer';
 
 const rootReducer = combineReducers({
   movies,
-  navBarItems
+  navBarItems,
 });
 
 export default rootReducer;
