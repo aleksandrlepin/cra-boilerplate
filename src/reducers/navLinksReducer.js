@@ -1,11 +1,11 @@
 import * as types from '../actions/actionTypes';
 import initialState from './initialState';
 
-const navBarReducer = (state = initialState.navBarItems, action) => {
+const navLinksReducer = (state = initialState.navLinks, action) => {
   switch(action.type) {
     default:
       return state;
   }
 }
 
-export default navBarReducer;
+export default navLinksReducer;

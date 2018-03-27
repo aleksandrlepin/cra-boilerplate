@@ -2,7 +2,7 @@ export default {
   movies: {
     data: [],
   },
-  navBarItems: [
+  navLinks: [
     {
       title: 'Home',
       path: '/',
@@ -19,5 +19,6 @@ export default {
       title: 'Watch list',
       path: '/watch-list',
     },
-  ]
-}
+  ],
+  router: {},
+};

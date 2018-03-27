@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 import logo from '../../images/movie-logo.png';
 
 
-const Header = ({ navBarItems }) => (
+const Header = ({ navLinks }) => (
   <header>
     <nav>
       <div className="nav-wrapper">
@@ -13,12 +13,12 @@ const Header = ({ navBarItems }) => (
           <img src={logo} style={{ width: '80px' }} alt="" />
         </a>
         <ul id="nav-mobile" className="right hide-on-med-and-down">
-          {/* {navBarItems.map(item => (
+          {navLinks.map(item => (
             <li key={item.title}>
               <NavLink exact to={item.path} activeClassName="nav-link--active" >
                 {item.title}
               </NavLink>
-            </li>))} */}
+            </li>))}
         </ul>
       </div>
     </nav>
@@ -26,11 +26,11 @@ const Header = ({ navBarItems }) => (
 );
 
 Header.propTypes = {
-  navBarItems: PropTypes.instanceOf(Array).isRequired,
+  navLinks: PropTypes.instanceOf(Array).isRequired,
 };
 
 const mapStateToProps = state => ({
-  navBarItems: state.navBarItems,
+  navLinks: state.navLinks,
 });
 
 
