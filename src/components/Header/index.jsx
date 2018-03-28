@@ -13,12 +13,24 @@ const Header = ({ navLinks }) => (
           <img src={logo} style={{ width: '80px' }} alt="" />
         </a>
         <ul id="nav-mobile" className="right hide-on-med-and-down">
-          {navLinks.map(item => (
-            <li key={item.title}>
-              <NavLink exact to={item.path} activeClassName="nav-link--active" >
-                {item.title}
-              </NavLink>
-            </li>))}
+          {navLinks.map((item) => {
+            if (item.path === '/') {
+              return (
+                <li key={item.title}>
+                  <NavLink exact to={item.path} className="nav-link" activeClassName="nav-link--active" >
+                    {item.title}
+                  </NavLink>
+                </li>
+              );
+            }
+            return (
+              <li key={item.title}>
+                <NavLink to={item.path} className="nav-link" activeClassName="nav-link--active" >
+                  {item.title}
+                </NavLink>
+              </li>
+            );
+          })}
         </ul>
       </div>
     </nav>

@@ -5,7 +5,6 @@ import { routerReducer, routerMiddleware } from 'react-router-redux';
 import createHistory from 'history/createBrowserHistory';
 import reducers from '../reducers';
 import initialState from '../reducers/initialState';
-console.log('reducers: ', reducers);
 
 export const history = createHistory();
 
