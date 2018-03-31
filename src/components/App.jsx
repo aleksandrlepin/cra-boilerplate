@@ -6,6 +6,7 @@ import Home from './Home';
 import About from './About';
 import Gallery from './Gallery';
 import WatchList from './WatchList';
+import HabitsList from './HabitsList';
 
 const App = props => (
   <div >
@@ -15,6 +16,7 @@ const App = props => (
       <Route path="/about" component={About} />
       <Route path="/gallery" component={Gallery} />
       <Route path="/watch-list" component={WatchList} />
+      <Route path="/habits-list" component={HabitsList} />
       <Route render={() => <h2>404 not found!!! sorry</h2>} />
     </Switch>
   </div>

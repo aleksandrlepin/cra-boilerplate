@@ -19,6 +19,10 @@ export default {
       title: 'Watch list',
       path: '/watch-list',
     },
+      {
+          title: 'HabitsList',
+          path: '/habits-list',
+      },
   ],
   router: {},
 };
